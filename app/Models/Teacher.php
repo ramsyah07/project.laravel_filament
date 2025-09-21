@@ -15,7 +15,6 @@ class Teacher extends Model
         'name',
         'email',
         'contact',
-        'subject',
     ];
 
     public function subject()

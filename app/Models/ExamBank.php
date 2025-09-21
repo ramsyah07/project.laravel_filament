@@ -16,19 +16,19 @@ class ExamBank extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'subject_id', // Pastikan subject_id ada
+        'subject_id',
         'question_text',
         'options',
         'answer',
     ];
 
     /**
-     * The attributes that should be cast.
+     * Attribute casting.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        // Kamu bisa tambahkan casts jika diperlukan
+        'options' => 'array',
     ];
 
     /**
@@ -37,5 +37,9 @@ class ExamBank extends Model
     public function subject(): BelongsTo
     {
         return $this->belongsTo(Subject::class);
+    }
+    public function teacher(): BelongsTo
+    { 
+        return $this->belongsTo(Teacher::class); 
     }
 }

@@ -20,10 +20,19 @@ class ScheduleResource extends Resource
 {
     protected static ?string $model = Schedule::class;
 
-     protected static \BackedEnum|string|null $navigationIcon = NavigationIcon::STUDENT->value;
-    protected static \UnitEnum|string|null   $navigationGroup = NavigationGroup::Academic_Management;
+    protected static \BackedEnum|string|null $navigationIcon = NavigationIcon::SCHEDULE->value;
+    
+    protected static \UnitEnum|string|null $navigationGroup = NavigationGroup::Academic_Management;
 
     protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?string $navigationLabel = 'Schedules';
+
+    protected static ?string $modelLabel = 'Schedule';
+
+    protected static ?string $pluralModelLabel = 'Schedules';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
@@ -43,7 +52,7 @@ class ScheduleResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // Add relationships if needed
         ];
     }
 
@@ -55,5 +64,15 @@ class ScheduleResource extends Resource
             'view' => ViewSchedule::route('/{record}'),
             'edit' => EditSchedule::route('/{record}/edit'),
         ];
+    }
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function canViewAny(): bool
+    {
+        return true;
     }
 }

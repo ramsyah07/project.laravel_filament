@@ -21,7 +21,6 @@ class ScheduleForm
 
                 Select::make('teacher_id')
                     ->options(Teacher::all()->pluck('name', 'id'))
-                    ->options(Teacher::all()->pluck('name', 'id'))
                     ->searchable()
                     ->required(),
 

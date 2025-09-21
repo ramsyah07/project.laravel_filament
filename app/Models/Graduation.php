@@ -35,13 +35,7 @@ class Graduation extends Model
         return $this->belongsTo(Student::class);
     }
 
-    /**
-     * Relasi ke Enrollment
-     */
-    public function enrollment(): BelongsTo
-    {
-        return $this->belongsTo(Enrollment::class);
-    }
+
 
     /**
      * Relasi ke Class

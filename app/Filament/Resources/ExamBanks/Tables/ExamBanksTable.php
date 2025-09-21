@@ -16,9 +16,22 @@ class ExamBanksTable
         return $table
             ->columns([
                 TextColumn::make('subject.name')
-                    ->searchable(),
+                    ->label('Subject')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('question_text')
+                    ->label('Question')
+                    ->limit(60)
+                    ->toggleable(),
+                TextColumn::make('options')
+                    ->label('Choices')
+                    ->formatStateUsing(fn ($state) => is_array($state) ? count($state) . ' options' : '0 options')
+                    ->sortable(),
                 TextColumn::make('answer')
-                    ->searchable(),
+                    ->label('Answer Key')
+                    ->badge()
+                    ->color('primary')
+                    ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

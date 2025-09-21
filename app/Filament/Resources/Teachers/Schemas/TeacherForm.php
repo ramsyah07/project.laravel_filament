@@ -31,9 +31,6 @@ class TeacherForm
                     ->label('Contact Number')
                     ->tel()
                     ->maxLength(15),
-                Textarea::make('address')
-                    ->columnSpanFull()
-                    ->maxLength(200),
                 Select::make('subjects')
                     ->label('Subjects')
                     ->multiple() // Bisa pilih lebih dari satu

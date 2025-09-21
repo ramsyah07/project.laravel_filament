@@ -18,7 +18,6 @@ class Classroom extends Model
         'room_number',
         'building',
         'floor',
-        'classroom_id', // pastikan ada foreign key
     ];
 
     /**
